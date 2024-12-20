@@ -1,25 +1,24 @@
-package com.example.ecommerceapp;
+package com.example.e_commerceapp;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import android.widget.ArrayAdapter;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class CartAdapter extends ArrayAdapter<Product> {
-
     private Context context;
-    private ArrayList<Product> cartItems;
+    private List<Product> cartItems;
 
-    public CartAdapter(Context context, ArrayList<Product> cartItems) {
-        super(context, R.layout.cart_item, cartItems);
+    public CartAdapter(Context context, List<Product> cartItems) {
+        super(context, 0, cartItems);
         this.context = context;
         this.cartItems = cartItems;
     }
@@ -31,19 +30,14 @@ public class CartAdapter extends ArrayAdapter<Product> {
             convertView = LayoutInflater.from(context).inflate(R.layout.cart_item, parent, false);
         }
 
-        // Get the current product
         Product product = cartItems.get(position);
 
-        // Set product name
-        TextView productNameTextView = convertView.findViewById(R.id.cart_item_name);
+        TextView productNameTextView = convertView.findViewById(R.id.cart_product_name);
+        TextView productPriceTextView = convertView.findViewById(R.id.cart_product_price);
+        ImageView productImageView = convertView.findViewById(R.id.cart_product_image);
+
         productNameTextView.setText(product.getName());
-
-        // Set product price
-        TextView productPriceTextView = convertView.findViewById(R.id.cart_item_price);
         productPriceTextView.setText("KSh " + product.getPrice());
-
-        // Set product image
-        ImageView productImageView = convertView.findViewById(R.id.cart_item_image);
         productImageView.setImageResource(product.getImageResource());
 
         return convertView;

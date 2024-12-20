@@ -1,9 +1,8 @@
-package com.example.ecommerceapp;
+package com.example.e_commerceapp;
 
 import java.io.Serializable;
 
 public class Product implements Serializable {
-
     private String name;
     private int price;
     private int imageResource;

@@ -1,7 +1,6 @@
-package com.example.ecommerceapp;
+package com.example.e_commerceapp;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,20 +11,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class ProductAdapter extends ArrayAdapter<Product> {
-
     private Context context;
     private ArrayList<Product> productList;
-    private Cart cart;
 
-    public ProductAdapter(Context context, ArrayList<Product> productList, Cart cart) {
+    public ProductAdapter(Context context, ArrayList<Product> productList) {
         super(context, R.layout.product_item, productList);
         this.context = context;
         this.productList = productList;
-        this.cart = cart;
     }
 
     @NonNull
@@ -35,33 +32,21 @@ public class ProductAdapter extends ArrayAdapter<Product> {
             convertView = LayoutInflater.from(context).inflate(R.layout.product_item, parent, false);
         }
 
-        // Get the current product
         Product product = productList.get(position);
 
-        // Set product name
         TextView productNameTextView = convertView.findViewById(R.id.product_name);
-        productNameTextView.setText(product.getName());
-
-        // Set product price
         TextView productPriceTextView = convertView.findViewById(R.id.product_price);
-        productPriceTextView.setText("KSh " + product.getPrice());
-
-        // Set product image
         ImageView productImageView = convertView.findViewById(R.id.product_image);
+        Button addToCartButton = convertView.findViewById(R.id.add_to_cart_button);
+
+        productNameTextView.setText(product.getName());
+        productPriceTextView.setText("KSh " + product.getPrice());
         productImageView.setImageResource(product.getImageResource());
 
-        // Set up "Add to Cart" button
-        Button addToCartButton = convertView.findViewById(R.id.add_to_cart_button);
-//        addToCartButton.setOnClickListener(v -> {
-//            cart.addToCart(product); // Add product to the cart
-//            notifyDataSetChanged(); // Update the adapter
-//        });
         addToCartButton.setOnClickListener(v -> {
-            cart.addToCart(product);  // Add product to cart
-            Log.d("Cart", "Product added to cart: " + product.getName());
-            notifyDataSetChanged();  // Notify adapter to refresh the list view
+            Cart.getInstance().addProduct(product);
+            Toast.makeText(context, product.getName() + " added to cart", Toast.LENGTH_SHORT).show();
         });
-
 
         return convertView;
     }

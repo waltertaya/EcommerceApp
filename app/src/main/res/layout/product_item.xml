@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -14,7 +12,7 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -30,13 +28,15 @@
             android:id="@+id/product_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="KSh 0"
+            android:text="Price"
             android:textSize="14sp" />
-    </LinearLayout>
 
-    <Button
-        android:id="@+id/add_to_cart_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add to Cart" />
+        <Button
+            android:id="@+id/add_to_cart_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add to Cart"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
 </LinearLayout>

@@ -8,16 +8,6 @@
     android:background="@color/nav_bar_color"
     android:elevation="4dp">
 
-    <ImageView
-        android:id="@+id/home_icon"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:src="@drawable/ic_home"
-        android:contentDescription="Home"
-        android:layout_gravity="center_vertical"
-        android:padding="4dp"
-        app:tint="@color/icon_tint" />
-
     <EditText
         android:id="@+id/search_bar"
         android:layout_width="0dp"
@@ -25,7 +15,7 @@
         android:layout_weight="1"
         android:hint="Search for products"
         android:padding="8dp"
-        android:background="@color/background_color"
+        android:background="@color/design_default_color_surface"
         android:drawableStart="@drawable/search"
         android:inputType="text" />
 

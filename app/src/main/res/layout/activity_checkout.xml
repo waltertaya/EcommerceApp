@@ -1,36 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#F5F5F5"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tvTotalPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total Price: $0.00"
-        android:textSize="18sp"
-        android:layout_gravity="center_horizontal"
-        android:padding="16dp" />
-
-    <EditText
-        android:id="@+id/etShippingAddress"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Shipping Address"
-        android:padding="12dp"
-        android:background="@android:drawable/edit_text"
-        android:layout_marginTop="20dp" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnPlaceOrder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Place Order"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/purple_500"
-        android:textColor="@android:color/white"
-        android:padding="12dp" />
+        <!-- Address Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
 
-</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery Location"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RURINGU, Bomas dedan kimathi university adison street stall 2..."
+                android:textSize="14sp"
+                android:textColor="#555555"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Payment Method Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Method"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/payment_method_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radio_wallet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="#4CAF50"
+                    android:checked="false"
+                    android:text="Wallet"
+                    android:textColor="#050505" />
+
+                <RadioButton
+                    android:id="@+id/radio_mpesa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Via M-Pesa"
+                    android:checked="true"
+                    android:buttonTint="#4CAF50" />
+
+                <EditText
+                    android:id="@+id/edit_mpesa_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter your M-PESA No."
+                    android:layout_marginTop="8dp"
+                    android:inputType="phone"
+                    android:background="@android:drawable/editbox_background"
+                    android:padding="8dp" />
+
+                <RadioButton
+                    android:id="@+id/radio_help"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ask a friend to help pay"
+                    android:checked="false"
+                    android:buttonTint="#4CAF50"
+                    android:layout_marginTop="8dp" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <!-- Total and Button -->
+        <TextView
+            android:id="@+id/total_price_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="KSh 0.00"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:gravity="end"
+            android:textColor="#4CAF50"
+            android:layout_marginBottom="16dp" />
+
+
+        <Button
+            android:id="@+id/btn_place_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Place Order"
+            android:backgroundTint="#FF5722"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+</ScrollView>

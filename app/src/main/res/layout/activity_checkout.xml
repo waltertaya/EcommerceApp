@@ -64,34 +64,37 @@
                     android:buttonTint="#4CAF50"
                     android:checked="false"
                     android:text="Wallet"
-                    android:textColor="#050505" />
+                    android:textColor="#000000" />
 
                 <RadioButton
                     android:id="@+id/radio_mpesa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Via M-Pesa"
+                    android:buttonTint="#4CAF50"
                     android:checked="true"
-                    android:buttonTint="#4CAF50" />
+                    android:text="Via M-Pesa"
+                    android:textColor="#000000" />
 
                 <EditText
                     android:id="@+id/edit_mpesa_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter your M-PESA No."
                     android:layout_marginTop="8dp"
-                    android:inputType="phone"
                     android:background="@android:drawable/editbox_background"
-                    android:padding="8dp" />
+                    android:hint="Enter your M-PESA No."
+                    android:inputType="phone"
+                    android:padding="8dp"
+                    android:textColor="#000000" />
 
                 <RadioButton
                     android:id="@+id/radio_help"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Ask a friend to help pay"
-                    android:checked="false"
+                    android:layout_marginTop="8dp"
                     android:buttonTint="#4CAF50"
-                    android:layout_marginTop="8dp" />
+                    android:checked="false"
+                    android:text="Ask a friend to help pay"
+                    android:textColor="#000000" />
             </RadioGroup>
 
         </LinearLayout>

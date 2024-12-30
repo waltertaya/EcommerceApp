@@ -50,13 +50,16 @@ public class CheckoutActivity extends AppCompatActivity {
                     if (paymentMethod.equals("Via M-Pesa") && phoneNumber.isEmpty()) {
                         Toast.makeText(CheckoutActivity.this, "Please enter M-PESA number", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(CheckoutActivity.this, "Order placed successfully! Total: " + totalPrice, Toast.LENGTH_SHORT).show();
-                        // Optionally navigate to an order confirmation screen here
+                        // Navigate to OrderConfirmationActivity
+                        Intent intent = new Intent(CheckoutActivity.this, OrderConfirmationActivity.class);
+                        startActivity(intent);
+                        finish(); // Finish CheckoutActivity
                     }
                 } else {
                     Toast.makeText(CheckoutActivity.this, "Please select a payment method", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
     }
 }
